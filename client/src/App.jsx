@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Ticket from './Ticket.jsx'
 import './App.css'
 
 import axios from 'axios';
@@ -17,6 +18,8 @@ function App() {
   return (
     <>
       <div>
+        <Ticket name="Take out the trash"></Ticket>
+        <Ticket name="Pet the cat"></Ticket>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

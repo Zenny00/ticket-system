@@ -30,7 +30,7 @@ app.listen(3000, () => {
 
 // Homepage route
 app.get("/", (req, res) => {
-  res.send("Hello from the server!");
+  res.send("Hello from the server!!");
 });
 
 // establishDatabaseConnection("postgres", "db", "postgres", "password", 5432);
