@@ -6,8 +6,8 @@ import './App.css'
 import axios from 'axios';
 
 function rootApiCall() {
-  axios.get("http://localhost:8080").then((data) => {
-    alert(JSON.stringify(data));
+  axios.get("http://localhost:3000").then((data) => {
+    alert(JSON.stringify(data.data));
   });
 }
 
