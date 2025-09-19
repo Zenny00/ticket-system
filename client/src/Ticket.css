@@ -1,0 +1,34 @@
+.ticket-card {
+  background-color: #FFFBDE;
+  border-radius: 2em;
+
+  color: black;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+
+  margin: 1em;
+  padding: 1em;
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+}
+
+.ticket-delete-icon {
+  width: 3em;
+  height: 3em;
+  margin-left: 2em;
+}
+
+.ticket-title {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ticket-content {
+  font-size: 1.2em;
+}
+
