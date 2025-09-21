@@ -18,8 +18,8 @@ function App() {
   return (
     <>
       <div>
-        <Ticket title="Take out the trash" content="Take the trash to the curb on Tuesdays and Fridays"></Ticket>
-        <Ticket title="Pet the cat" content="Cat is getting grumpy, pet her."></Ticket>
+        <Ticket title="Take out the trash" content="Take the trash to the curb on Tuesdays and Fridays" state="doing"></Ticket>
+        <Ticket title="Pet the cat" content="Cat is getting grumpy, pet her." state="done"></Ticket>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

@@ -7,7 +7,9 @@
   font-weight: 600;
 
   margin: 1em;
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
 }
 
 .ticket-header {
@@ -16,9 +18,8 @@
 }
 
 .ticket-delete-icon {
-  width: 3em;
-  height: 3em;
-  margin-left: 2em;
+  width: 2em;
+  height: 2em;
 }
 
 .ticket-title {

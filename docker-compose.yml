@@ -29,12 +29,13 @@ services:
     networks: 
       - node-network
     volumes: 
-      - ./client:/usr/src/app
+      - ./client/src:/usr/src/app/src
+      - ./client/public:/usr/src/app/public
       - /usr/src/app/node_modules
     tty: true
     ports: 
       - "5173:5173"
-    command: npm run dev
+    command: npm run dev -- --host
 
   db:
     image: postgres
