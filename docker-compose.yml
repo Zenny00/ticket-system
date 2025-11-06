@@ -45,6 +45,8 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
     environment: 
+      - POSTGRES_DB=ticketsystem
+      - POSTGRES_USER=ticketmanager 
       - POSTGRES_PASSWORD=placeholder
     ports: 
       - "5432:5432"
