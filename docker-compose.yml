@@ -44,6 +44,7 @@ services:
     tty: true
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./postgres/create_tables.sql:/docker-entrypoint-initdb.d/init.sql
     environment: 
       - POSTGRES_DB=ticketsystem
       - POSTGRES_USER=ticketmanager 
