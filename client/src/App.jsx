@@ -1,47 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import Ticket from './Ticket.jsx'
 import './App.css'
-
+import NavMenu from './NavMenu.jsx';
 import axios from 'axios';
 
-function rootApiCall() {
-  axios.get("http://localhost:3000").then((data) => {
-    alert(JSON.stringify(data.data));
+async function retrieveUserList() {
+  return await axios.get("http://localhost:3000").then((res) => {
+    return res.data;
   });
 }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+
+    async function getUserData() {
+      let userList = await retrieveUserList();
+      setUsers(userList);
+    }
+
+    getUserData();
+  }, []);
 
   return (
     <>
       <div>
-        <Ticket title="Take out the trash" content="Take the trash to the curb on Tuesdays and Fridays" state="doing"></Ticket>
-        <Ticket title="Pet the cat" content="Cat is getting grumpy, pet her." state="done"></Ticket>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {users?.map((user) => <div key={user.user_id}>{user.username}</div>)}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <button onClick={rootApiCall}>Get root route response</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
 
-export default App
+export default App;
+

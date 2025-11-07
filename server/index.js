@@ -26,20 +26,25 @@ async function establishDatabaseConnectionPool(user, password, host, database, p
 app.use(cors());
 
 let pool = await establishDatabaseConnectionPool("ticketmanager", "placeholder", "db", "ticketsystem", 5432);
-let connection = await pool.connect();
-let query = await connection.query('SELECT * FROM users');
 
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
 
-// Homepage route
-app.get("/", (req, res) => {
+// Homepage route, return the list of users
+app.get("/", async (req, res) => {
+  const USER_FIELDS = "user_id, username";
+
+  // Request connection from the pool
+  let connection = await pool.connect();
+
+  // Retrieve data from user (ticket_manager) table
+  let users = await connection.query(`SELECT ${USER_FIELDS} FROM ticket_manager`);
+
+  // Release connection back to pool
+  connection.release();
   
-  console.log(query);
-
-  console.log("Connection established with DB!");
-  res.send("Hello from the server!!");
-
+  // Return user data as JSON
+  res.send(users?.rows || []);
 });
 
