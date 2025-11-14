@@ -1,5 +1,56 @@
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 4px var(--pulse-color),
+      0 0 8px var(--pulse-color),
+      0 0 12px var(--pulse-color),
+      0 0 18px var(--pulse-color);
+  }
+  50% {
+    text-shadow:
+      0 0 6px var(--pulse-color),
+      0 0 12px var(--pulse-color),
+      0 0 18px var(--pulse-color),
+      0 0 24px var(--pulse-color);
+  }
+}
+
+@keyframes divPulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px var(--pulse-color))
+            drop-shadow(0 0 4px var(--pulse-color))
+            drop-shadow(0 0 8px var(--pulse-color));
+  }
+  50% {
+    filter: drop-shadow(0 0 4px var(--pulse-color))
+            drop-shadow(0 0 8px var(--pulse-color))
+            drop-shadow(0 0 12px var(--pulse-color));
+  }
+}
+
+@font-face {
+  font-family: 'digital-7-italic';
+  src: url('fonts/digital-7-italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'digital-7';
+  src: url('fonts/digital-7.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'digital-7-bold';
+  src: url('fonts/digital-7.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'digital-7-italic';
   line-height: 1.5;
   font-weight: 400;
 
@@ -66,4 +117,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-

@@ -1,0 +1,35 @@
+.delete_icon {
+  --pulse-color: rgba(162, 13, 13, 0.7);
+  animation: divPulseGlow 10s ease-in-out infinite;
+  display: flex;
+  transform: skew(-15deg);
+  width: 3em;
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.user_container {
+  width: 25em;
+  transform: skew(15deg);
+  background-color: #333333;
+  font-family: 'digital-7-bold';
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  margin: 1em;
+}
+
+.user_container:hover {
+  background-color: #666666;
+}
+
+.user_name {
+  margin-left: 0.5em;
+  margin-right: auto;
+  --pulse-color: #892CDC;
+  transform: skew(-15deg);
+  animation: pulseGlow 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  font-size: 3em;
+}
