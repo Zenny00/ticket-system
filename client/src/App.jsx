@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, Link, Outlet, useLocation, useParams } fr
 import Ticket from './Ticket.jsx'
 import './App.css';
 import UserPage from './UserPage.jsx';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 
 function Users() {
   return <UserPage></UserPage>;
@@ -9,14 +12,33 @@ function Users() {
 
 function Tasks() {
   let { user_id } = useParams();
-  console.log(user_id);
+
+  async function retrieveTicketList(user_id) {
+    return await axios.get(`http://localhost:3000/tickets/${user_id}`).then((res) => {
+      return res.data;
+    });
+  }
+
+  const [tickets, setTickets] = useState([]);
+  
+  useEffect(() => {
+    async function getTicketData() {
+      let ticketList = await retrieveTicketList(user_id);
+      setTickets(ticketList);
+    }
+
+    getTicketData();
+  }, []);
+
+  console.log(tickets);
 
   return (
-    <div>
+    <>
       <h1>Tasks Page</h1>
-      <Ticket title="Take out the trash" content="Take the trash to the curb on Tuesdays and Fridays" state="doing"></Ticket>
-      <Ticket title="Pet the cat" content="Cat is getting grumpy, pet her." state="done"></Ticket>
-    </div>
+      <div>
+        {tickets.map((ticket) => { return <Ticket title={ticket.title} content={ticket.content} state={ticket.status.toLowerCase()}></Ticket> })}
+      </div>
+    </>
   );
 }
 

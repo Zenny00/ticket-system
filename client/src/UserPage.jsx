@@ -6,7 +6,7 @@ import axios from 'axios';
 import User from './User.jsx';
 
 async function retrieveUserList() {
-  return await axios.get("http://localhost:3000").then((res) => {
+  return await axios.get("http://localhost:3000/users").then((res) => {
     return res.data;
   });
 }
