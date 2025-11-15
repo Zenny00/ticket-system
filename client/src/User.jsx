@@ -2,6 +2,7 @@ import delete_icon from './assets/delete.png';
 import './User.css';
 import {
   Link,
+  useParams
 } from "react-router-dom";
 
 // Represents a user

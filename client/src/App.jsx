@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import Ticket from './Ticket.jsx'
 import './App.css';
 import UserPage from './UserPage.jsx';
@@ -7,7 +7,10 @@ function Users() {
   return <UserPage></UserPage>;
 }
 
-function Tasks(user_id) {
+function Tasks() {
+  let { user_id } = useParams();
+  console.log(user_id);
+
   return (
     <div>
       <h1>Tasks Page</h1>
