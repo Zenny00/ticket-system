@@ -25,16 +25,30 @@
   font-size: 5em;
   --pulse-color: #FF2B00;
   animation: pulseGlow 3s ease-in-out infinite;
-
 }
 
 .user_content {
   margin-top: 20em;
-  width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-self: center;
+  flex-direction: column;
+  background-color: #444444;
+
+  padding: 3em;
+
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%, 
+    0 20px
+  );
 }
 
 .user_list_title {
@@ -47,18 +61,26 @@
 
 .user_list {
   align-self: center;
-
-  background-color: #444444;
   width: max-content;
-  padding: 3em;
+}
+
+.create_user_button {
+  background-color: #333333 !important;
+  color: #FF6E00 !important;
+  font-family: 'digital-7-italic' !important;
+  margin-top: 2em !important;
+  font-size: 1.25em !important;
+  padding: 1em !important;
+  --pulse-color: #FF6E00;
+  animation: pulseGlow 3s ease-in-out infinite;
 
   clip-path: polygon(
-    20px 0,
+    10px 0,
     100% 0,
-    100% calc(100% - 20px),
-    calc(100% - 20px) 100%,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
     0 100%, 
-    0 20px
-  );
+    0 10px
+  ) !important;
 }
 
